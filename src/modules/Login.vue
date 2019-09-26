@@ -2,42 +2,54 @@
   <div id="background" style="padding-top:20px;">
     <center>
       <div id="divLogin" class="col-sm-3 my-sm-5 border rounded" style="margin-left:0.5%">
-        <form class="container" @submit.prevent="login">
+        <form class="container">
           <center>
             <h1>Login</h1>
           </center>
-          <hr>
+          <hr />
           <div class="row">
-            <label for="loginUsername">Username:</label>
+            <label id="username" for="loginUsername">Username:</label>
             <input
+              required
               v-model="username"
               name="username"
               class="form-control"
               placeholder="Enter Username"
-            >
-            <br>
+            />
+            <br />
           </div>
-          <br>
+          <br />
           <div class="row">
-            <label for="loginPassword">Password:</label>
+            <label id="pass" for="loginPassword">Password:</label>
             <input
+              required
               v-model="password"
               name="password"
               class="form-control"
               id="loginPassword"
               placeholder="Enter Password"
-            >
+            />
           </div>
-          <br>
+          <br />
           <button id="btnLogin" class="btn btn-primary btn-lg btn-block col-sm-5" @click="submit">
             <h4>Login</h4>
           </button>
-          <br>
+          <br />
         </form>
       </div>
     </center>
   </div>
 </template>
+<style scoped lang="scss">
+@import "assets/colors.scss";
+
+#username {
+  color: $primary !important;
+}
+#pass {
+  color: $primary !important;
+}
+</style>
 <script>
 export default {
   data() {
@@ -47,16 +59,8 @@ export default {
     };
   },
   methods: {
-    login: function() {
-      let username = this.username;
-      let password = this.password;
-      this.$store
-        .dispatch("login", { email, password })
-        .then(() => this.$router.push("/"))
-        .catch(err => console.log(err));
-    },
     submit: function() {
-      alert("Username:\n " + this.username + "Password: " + this.password);
+      alert("Username: " + this.username + "\nPassword: " + this.password);
     }
   }
 };

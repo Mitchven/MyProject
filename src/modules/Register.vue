@@ -54,6 +54,15 @@
     </div>
   </center>
 </template>
+<style scoped lang="scss">
+// @import"assets/colors.scss";
+
+// #username{
+//   color: $primary !important;
+// }
+// #pass{
+//   color: $primary !important;
+</style>
 <script>
 import ROUTER from "router";
 export default {
