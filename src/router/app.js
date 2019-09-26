@@ -13,6 +13,18 @@ export default {
         component: resolve => require(['modules/Register.vue'], resolve),
         meta: {
             tokenRequired: false
-        }
+        },
+        // path: '/Sidebar',
+        // name: 'sidebar',
+        // component: resolve => require(['components/frame/Sidebar.vue'], resolve),
+        // meta: {
+        //     tokenRequired: false
+        // },
+        // path: '/Sidebar',
+        // name: 'sidebar',
+        // component: resolve => require(['components/frame/Sidebar.vue'], resolve),
+        // meta: {
+        //     tokenRequired: false
+        // }
     }]
 }

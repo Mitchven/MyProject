@@ -7,8 +7,8 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item  v-on:click = "redirect('/Login')" class="text text-light" id="login">Login</b-nav-item>
-        <b-nav-item  v-on:click = "redirect('/Register')" class="text text-light" id="signup">Sign Up</b-nav-item>
+        <b-nav-item  @click ="redirect('/Login')" class="text text-light" id="login">Login</b-nav-item>
+        <b-nav-item  @click ="redirect('/Register')" class="text text-light" id="signup">Sign Up</b-nav-item>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
@@ -23,7 +23,7 @@
 </div>
 </template>
 <style scoped lang="scss">
-  @import"~assets/colors.scss";
+  @import"assets/colors.scss";
   #title {
     color: $danger !important;
   }

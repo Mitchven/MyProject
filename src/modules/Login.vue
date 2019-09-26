@@ -2,31 +2,37 @@
   <div id="background" style="padding-top:20px;">
     <center>
       <div id="divLogin" class="col-sm-3 my-sm-5 border rounded" style="margin-left:0.5%">
-        <form class="container">
+        <form class="container" @submit.prevent="login">
           <center>
             <h1>Login</h1>
           </center>
-          <hr />
+          <hr>
           <div class="row">
             <label for="loginUsername">Username:</label>
-            <input class="form-control" placeholder="Enter Username" />
-            <br />
+            <input
+              v-model="username"
+              name="username"
+              class="form-control"
+              placeholder="Enter Username"
+            >
+            <br>
           </div>
-          <br />
+          <br>
           <div class="row">
             <label for="loginPassword">Password:</label>
             <input
-              type="password"
+              v-model="password"
+              name="password"
               class="form-control"
               id="loginPassword"
               placeholder="Enter Password"
-            />
+            >
           </div>
-          <br />
-          <button id="btnLogin" class="btn btn-primary btn-lg btn-block col-sm-5">
+          <br>
+          <button id="btnLogin" class="btn btn-primary btn-lg btn-block col-sm-5" @click="submit">
             <h4>Login</h4>
           </button>
-          <br />
+          <br>
         </form>
       </div>
     </center>
@@ -36,20 +42,20 @@
 export default {
   data() {
     return {
-      email: "",
+      username: "",
       password: ""
     };
   },
   methods: {
-    handleSubmit(e) {
-      e.preventDefault();
-      if (this.password.length > 0) {
-        this.$http.post("http://localhost:3000/login", {
-          email: this.email,
-          password: this.password
-        });
-      }
+    login: function(e) {
+      const { username, password } = this;
+      this.$store.dispatch(AUTH_REQUEST, { username, password }).then(() => {
+        this.$router.push("/");
+      });
     }
+  },
+  submit: function() {
+    alert("Username:\n " + this.username + "Password: " + this.password);
   }
 };
 </script>
