@@ -47,15 +47,17 @@ export default {
     };
   },
   methods: {
-    login: function(e) {
-      const { username, password } = this;
-      this.$store.dispatch(AUTH_REQUEST, { username, password }).then(() => {
-        this.$router.push("/");
-      });
+    login: function() {
+      let username = this.username;
+      let password = this.password;
+      this.$store
+        .dispatch("login", { email, password })
+        .then(() => this.$router.push("/"))
+        .catch(err => console.log(err));
+    },
+    submit: function() {
+      alert("Username:\n " + this.username + "Password: " + this.password);
     }
-  },
-  submit: function() {
-    alert("Username:\n " + this.username + "Password: " + this.password);
   }
 };
 </script>
