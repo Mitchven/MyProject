@@ -15,7 +15,7 @@
               name="username"
               class="form-control"
               placeholder="Enter Username"
-            >
+            > 
             <br>
           </div>
           <br>
@@ -32,8 +32,8 @@
             >
           </div>
           <br>
-          <button id="btnLogin" class="btn btn-primary btn-lg btn-block col-sm-5" @click="submit">
-            <h4>Login</h4>
+          <button id="btnLogin" class="btn btn-primary" @click="submit">
+            <h6>Login</h6>
           </button>
           <br>
         </form>
@@ -66,6 +66,7 @@ export default {
       e.preventDefault();
       AUTH.login(this.username, this.password)
     },
+
   }
 };
 </script>

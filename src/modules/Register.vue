@@ -13,14 +13,14 @@
               v-model="content.username"
               class="form-control"
               name="username"
-              placeholder="Firstname"
+              placeholder="Enter Username"
             >
           </div>
           <br>
           <div class="row">
             <br>
-            <label for="inputUsername">Email:</label>
-            <input class="form-control" v-model="content.email" name="email" placeholder="Username">
+            <label for="inputEmail">Email:</label>
+            <input type="email" class="form-control" v-model="content.email" placeholder="Enter Email">
           </div>
           <br>
           <div class="row">
@@ -43,7 +43,7 @@
               type="password"
               class="form-control"
               id="inputConPassword"
-              placeholder="Password"
+              placeholder="Confirm Password"
             >
             <span></span>
             <br>
@@ -53,14 +53,14 @@
         <button
           id="btnSubmit"
           type="submit"
-          class="btn btn-primary btn-lg btn-block col-sm-5"
+          class="btn btn-primary"
           @click="submit"
         >
-          <h4>Register</h4>
+          <h6>Register</h6>
         </button>
         <br>
         <p>Already have an account?</p>
-        <router-link to="/login">Login</router-link>
+        <router-link to="/Login">Login</router-link>
         <br>
       </form>
     </div>

@@ -43,11 +43,6 @@ export default {
       username: sessionStorage.getItem("Username")
     };
   },
-  methods: {
-    redirect(router) {
-      ROUTER.push(router);
-    }
-  }
 };
 </script>
 

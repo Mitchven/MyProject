@@ -23,12 +23,12 @@ export default {
           icon: "fa fa-chart-area",
         },
         {
-          href: "/Personalinfo",
+          href: "/PersonalInfo",
           title: "Personal Info",
           icon: "fa fa-chart-area",
         },
         {
-          href: "/Logout",
+          href: "/Login",
           title: "Logout",
           icon: "fa fa-chart-area",
         }
