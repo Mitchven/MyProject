@@ -6,7 +6,7 @@
           <center>
             <h1>Login</h1>
           </center>
-          <hr />
+          <hr>
           <div class="row">
             <label id="username" for="loginUsername">Username:</label>
             <input
@@ -15,26 +15,27 @@
               name="username"
               class="form-control"
               placeholder="Enter Username"
-            />
-            <br />
+            >
+            <br>
           </div>
-          <br />
+          <br>
           <div class="row">
             <label id="pass" for="loginPassword">Password:</label>
             <input
               required
               v-model="password"
+              type="password"
               name="password"
               class="form-control"
               id="loginPassword"
               placeholder="Enter Password"
-            />
+            >
           </div>
-          <br />
+          <br>
           <button id="btnLogin" class="btn btn-primary btn-lg btn-block col-sm-5" @click="submit">
             <h4>Login</h4>
           </button>
-          <br />
+          <br>
         </form>
       </div>
     </center>
@@ -51,17 +52,20 @@
 }
 </style>
 <script>
+import AUTH from 'services/auth'
 export default {
   data() {
+    AUTH
     return {
       username: "",
       password: ""
     };
   },
   methods: {
-    submit: function() {
-      alert("Username: " + this.username + "\nPassword: " + this.password);
-    }
+    submit: function(e) {
+      e.preventDefault();
+      AUTH.login(this.username, this.password)
+    },
   }
 };
 </script>

@@ -9,18 +9,30 @@
         <div>
           <div class="row">
             <label for="inputfname">Username:</label>
-            <input  v-model="username" class="form-control" name="username" placeholder="Firstname">
+            <input
+              v-model="content.username"
+              class="form-control"
+              name="username"
+              placeholder="Firstname"
+            >
           </div>
           <br>
           <div class="row">
             <br>
             <label for="inputUsername">Email:</label>
-            <input class="form-control" v-model="email" name ="email" placeholder="Username">
+            <input class="form-control" v-model="content.email" name="email" placeholder="Username">
           </div>
           <br>
           <div class="row">
             <label for="inputPassword">Password:</label>
-            <input  v-model="password" class="form-control" name="password" id="inputPassword4" placeholder="Password">
+            <input
+              type="password"
+              v-model="content.password"
+              class="form-control"
+              name="password"
+              id="inputPassword4"
+              placeholder="Password"
+            >
             <span></span>
             <br>
             <br>
@@ -28,7 +40,7 @@
           <div class="row">
             <label for="inputConPassword">Confirm Password:</label>
             <input
-              type="conpassword"
+              type="password"
               class="form-control"
               id="inputConPassword"
               placeholder="Password"
@@ -42,7 +54,7 @@
           id="btnSubmit"
           type="submit"
           class="btn btn-primary btn-lg btn-block col-sm-5"
-          @click="alertMe()"
+          @click="submit"
         >
           <h4>Register</h4>
         </button>
@@ -65,21 +77,26 @@
 </style>
 <script>
 import ROUTER from "router";
+import AUTH from "services/auth";
 export default {
-      data() {
+  data() {
     return {
-      username: "",
-      email: "",
-      password: "",
-      conpassword: ""
+      auth: AUTH,
+      content: {
+        username: "",
+        email: "",
+        password: "",
+        conpassword: ""
+      }
     };
-      },
+  },
   methods: {
-    alertMe(){
-        alert("username: " + this.username + "\nemail: " + this.email + "\npassword: " + this.password);
-    },
-    redirect(router) {
-      ROUTER.push(router);
+    submit: function(e) {
+      e.preventDefault();
+      sessionStorage.setItem("Username", this.content.username),
+        sessionStorage.setItem("Email", this.content.email),
+        sessionStorage.setItem("Password", this.content.password),
+        AUTH.register(this.content.username, this.content.password);
     }
   }
 };

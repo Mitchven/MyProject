@@ -31,7 +31,7 @@
 <script>
   import ROUTER from 'router'
   export default {
-      methods: {
+      methods: {     
           redirect(router){
               ROUTER.push(router)
           }
