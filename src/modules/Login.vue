@@ -1,46 +1,43 @@
 <template>
-  <div id="background" style="padding-top:20px;">
-    <center>
-      <div id="divLogin" class="col-sm-3 my-sm-5 border rounded" style="margin-left:0.5%">
-        <form class="container">
-          <center>
-            <h1>Login</h1>
-          </center>
-          <hr>
-          <div class="row">
-            <label id="username" for="loginUsername">Username:</label>
-            <input
-              required
-              v-model="username"
-              name="username"
-              class="form-control"
-              placeholder="Enter Username"
-            > 
-            <br>
+
+  <div class="row loginPage">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div class="container">
+          <div class="card">
+            <div class="card-header">LOGIN</div>
+            <div class="card-body">
+              <div class="form-group">
+                <label for="email" class="bmd-label-floating">Email</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="email"
+                  v-model="email"
+                  placeholder="Enter email..."
+                />
+              </div>
+              <div class="form-group">
+                <label for="pwd" class="bmd-label-floating">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="passw"
+                  v-model="password"
+                  placeholder="Enter password..."
+                />
+              </div>
+              <center>
+                <button type="button" class="btn btn-outline-success login-btn" id="btnLogin" @click='submit'>Login</button>
+                
+              </center>
+            </div>
           </div>
-          <br>
-          <div class="row">
-            <label id="pass" for="loginPassword">Password:</label>
-            <input
-              required
-              v-model="password"
-              type="password"
-              name="password"
-              class="form-control"
-              id="loginPassword"
-              placeholder="Enter Password"
-            >
-          </div>
-          <br>
-          <button id="btnLogin" class="btn btn-primary" @click="submit">
-            <h6>Login</h6>
-          </button>
-          <br>
-        </form>
+        </div>
       </div>
-    </center>
-  </div>
-</template>
+    </div>
+
+  </template>
 <style scoped lang="scss">
 @import "assets/colors.scss";
 
@@ -57,16 +54,61 @@ export default {
   data() {
     AUTH
     return {
-      username: "",
+      email: "",
       password: ""
     };
   },
   methods: {
     submit: function(e) {
       e.preventDefault();
-      AUTH.login(this.username, this.password)
+      AUTH.login(this.email, this.password)
     },
 
   }
 };
 </script>
+
+<style scoped>
+  .card {
+  background-color: pink;
+  margin-top: 50px;
+  padding: 30px;
+}
+  
+
+.h3 {
+  margin-left: 500px;
+  margin-top: 300px;
+  font-size: 40px;
+  font-family: Times new;
+}
+.nav {
+  margin-block: auto;
+}
+
+.card-header {
+  text-align: center;
+  font-weight:bold;
+  font-size: 30px;
+  letter-spacing: 5px;
+  background-color: black;
+  color:pink;
+  
+}
+
+label {
+  font-weight:bold;
+}
+
+input {
+  border: 2px solid black;
+}
+
+#btnLogin {
+  color: black;
+  border: 2px solid black;
+  margin-top: 5px;
+  padding: 12px 30px;
+}
+
+</style>
