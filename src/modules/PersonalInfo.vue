@@ -40,6 +40,7 @@
 }
 </style>
 <script>
+import AUTH from "services/auth"
 export default {
   name: "container",
   data() {
