@@ -35,7 +35,7 @@
 .jumbotron{
     padding: 20px;
     text-align: center;
-    background-color:gray;
+    background-color:skyblue;
 }
 #card {
   margin-top: 50px;

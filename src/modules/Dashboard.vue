@@ -27,7 +27,7 @@
 .jumbotron{
     padding:20px;
     text-align: center;
-    background-color:gray;
+    background-color:skyblue;
 }
 #image {
   width: 250px;
