@@ -71,7 +71,7 @@
 
                 <br>
                 <p>Already have an account?</p>
-                <router-link to="/">Login</router-link>
+                <router-link to="/Login">Login</router-link>
               </center>
             </div>
           </div>
@@ -126,7 +126,7 @@ export default {
   background-color: gray;
   margin-top: 30px;
   padding: 0px;
-  border-radius: 0px;
+  border-radius: 50px;
 }
   
 
@@ -145,7 +145,7 @@ export default {
   font-weight:bold;
   font-size: 30px;
   letter-spacing: 5px;
-  background-color: black;
+  border-radius: 50px;
   color:white;
   
 }

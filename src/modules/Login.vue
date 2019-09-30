@@ -1,5 +1,4 @@
 <template>
-
   <div class="row loginPage">
       <div class="col-md-4"></div>
       <div class="col-md-4">
@@ -15,6 +14,7 @@
                   id="email"
                   v-model="email"
                   placeholder="Enter email..."
+                  required
                 />
               </div>
               <div class="form-group">
@@ -73,9 +73,12 @@ export default {
   background-color: gray;
   margin-top: 30px;
   padding: 30px;
+  border-radius: 50px;
 }
   
-
+.container{
+  background-color: white;
+}
 .h3 {
   margin-left: 500px;
   margin-top: 300px;
@@ -91,7 +94,6 @@ export default {
   font-weight:bold;
   font-size: 30px;
   letter-spacing: 5px;
-  background-color: black;
   color:white;
   
 }

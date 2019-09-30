@@ -13,6 +13,8 @@
             <b-card-body title="Personal Info">
                 <hr>
               <b-card-text>
+              <h6>Firstname: {{firstname}}</h6>
+              <h6>Lastname: {{lastname}}</h6>
                 <h6>Username: {{username}}</h6>
                 <h6>Email: {{email}}</h6>
                 <h6 type="password">Password: {{password}}</h6>
@@ -33,6 +35,7 @@
 .jumbotron{
     padding: 20px;
     text-align: center;
+    background-color:gray;
 }
 #card {
   margin-top: 50px;
@@ -45,6 +48,8 @@ export default {
   name: "container",
   data() {
     return {
+      firstname: sessionStorage.getItem("Firstname"),
+      lastname: sessionStorage.getItem("Lastname"),
       username: sessionStorage.getItem("Username"),
       email: sessionStorage.getItem("Email"),
       password: sessionStorage.getItem("Password")

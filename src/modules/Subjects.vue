@@ -54,10 +54,12 @@
 <style>
 #card {
   margin-top: 20px;
+  border-radius: 50px;
 }
 .jumbotron {
   padding: 20px;
   text-align: center;
+  background-color: gray;
 }
 </style>
 

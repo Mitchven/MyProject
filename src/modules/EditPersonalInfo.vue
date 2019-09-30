@@ -6,11 +6,8 @@
         <div class="row">
             <!-- left column -->
             <div class="card">
-                <div class="text-center">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS5ew6psjgnkJHXT40tf3ub7YJWUr9VuVHkzeBe2g5sgzlIcc3f" class="avatar img-circle" alt="avatar">
-                    <h6>Upload a different photo...</h6>
+                
 
-                    <input type="file" class="form-control">
                     <form class="form-horizontal" role="form">
                         <div class="form-group">
                             <label class="col-lg-6 control-label">First name:</label>
@@ -60,7 +57,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    
 </template>
 
 <style scoped>
@@ -79,6 +76,7 @@
 .jumbotron{
     padding:20px;
     text-align: center;
+    background-color:gray;
 }
 #image {
   width: 250px;
@@ -110,7 +108,7 @@ export default {
         sessionStorage.setItem("Email", this.input.email),
         sessionStorage.setItem("Username", this.input.username),
         sessionStorage.setItem("Password", this.input.password),
-        AUTH.edit(this.input.email, this.input.password);
+        AUTH.edit(this.input.firstname,this.input.lastname,this.input.email, this.input.password);
     }
   }
 };
