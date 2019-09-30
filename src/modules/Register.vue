@@ -13,7 +13,7 @@
                   class="form-control"
                   id="fname"
                   v-model = "content.firstname"
-                  placeholder="Enter your firstname.."
+                  placeholder="Enter your firstname"
                 />
               </div>
               <div class="form-group">
@@ -23,17 +23,27 @@
                   class="form-control"
                   id="lname"
                   v-model = "content.lastname"
-                  placeholder="Enter your lastname.."
+                  placeholder="Enter your lastname"
                 />
               </div>
               <div class="form-group">
-                <label for="email" class="bmd-label-floating">Email</label>
+                <label for="email" class="bmd-label-floating">Email Address</label>
                 <input
                   type="email"
                   class="form-control"
                   id="email"
                   v-model= "content.email"
-                  placeholder="Enter your email.."
+                  placeholder="Enter your email"
+                />
+              </div>
+              <div class="form-group">
+                <label for="email" class="bmd-label-floating">Username</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="username"
+                  v-model= "content.username"
+                  placeholder="Enter your username"
                 />
               </div>
               <div class="form-group">
@@ -43,7 +53,7 @@
                   class="form-control"
                   id="pass"
                   v-model = "content.password"
-                  placeholder="Enter your password.."
+                  placeholder="Enter your password"
                 />
               </div>
                             <div class="form-group">
@@ -53,7 +63,7 @@
                   class="form-control"
                   id="cpass"
                   v-model = "content.cpassword"
-                  placeholder="Confirm you password.."
+                  placeholder="Confirm you password"
                 />
               </div>
               <center>
@@ -91,6 +101,7 @@ export default {
         firstname: "",
         lastname: "",
         email: "",
+        username: "",
         password: "",
         cpassword: ""
       }
@@ -102,6 +113,7 @@ export default {
       sessionStorage.setItem("Firstname", this.content.firstname),
         sessionStorage.setItem("Lastname", this.content.lastname),
         sessionStorage.setItem("Email", this.content.email),
+        sessionStorage.setItem("Username", this.content.username),
         sessionStorage.setItem("Password", this.content.password),
         AUTH.register(this.content.email, this.content.password);
     }
@@ -111,9 +123,10 @@ export default {
 
 <style>
   .card {
-  background-color: pink;
-  margin-top: 50px;
-  padding: 30px;
+  background-color: gray;
+  margin-top: 30px;
+  padding: 0px;
+  border-radius: 0px;
 }
   
 
@@ -133,7 +146,7 @@ export default {
   font-size: 30px;
   letter-spacing: 5px;
   background-color: black;
-  color:pink;
+  color:white;
   
 }
 

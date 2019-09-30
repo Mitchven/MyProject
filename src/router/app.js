@@ -36,6 +36,14 @@ export default {
         component: resolve => require(['modules/PersonalInfo.vue'], resolve),
         meta: {
             tokenRequired: false
+        }
+    },
+    {
+        path: '/EditPersonalInfo',
+        name: 'EditPersonalInfo',
+        component: resolve => require(['modules/EditPersonalInfo.vue'], resolve),
+        meta: {
+            tokenRequired: false
     },
     // {
     //     path: '/Logout',

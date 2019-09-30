@@ -42,10 +42,10 @@
 @import "assets/colors.scss";
 
 #username {
-  color: $primary !important;
+  color: $success !important;
 }
 #pass {
-  color: $primary !important;
+  color: $success !important;
 }
 </style>
 <script>
@@ -70,8 +70,8 @@ export default {
 
 <style scoped>
   .card {
-  background-color: pink;
-  margin-top: 50px;
+  background-color: gray;
+  margin-top: 30px;
   padding: 30px;
 }
   
@@ -92,7 +92,7 @@ export default {
   font-size: 30px;
   letter-spacing: 5px;
   background-color: black;
-  color:pink;
+  color:white;
   
 }
 

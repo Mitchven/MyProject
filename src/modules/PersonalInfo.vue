@@ -7,7 +7,7 @@
       <b-card no-body class="overflow-hidden" style="max-width: 540px;">
         <b-row no-gutters>
           <b-col md="6">
-            <b-card-img :src="require('assets/user.png')" class="rounded-0"></b-card-img>
+            <b-card-img src="require('assets/user.png')" class="rounded-0"></b-card-img>
           </b-col>
           <b-col md="6">
             <b-card-body title="Personal Info">
@@ -16,6 +16,10 @@
                 <h6>Username: {{username}}</h6>
                 <h6>Email: {{email}}</h6>
                 <h6 type="password">Password: {{password}}</h6>
+                <center>
+                <p>Want to edit profile?</p>
+                <router-link to = '/EditPersonalInfo'>Click Me!</router-link>
+              </center>
               </b-card-text>
             </b-card-body>
           </b-col>
@@ -45,5 +49,10 @@ export default {
       password: sessionStorage.getItem("Password")
     };
   },
+  methods: {
+    edit(){
+      AUTH.edit(this.firstname,this.lastname,this.email,this.username,this.password,this.cpassword);
+    }
+  }
 };
 </script>
