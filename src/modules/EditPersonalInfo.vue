@@ -1,13 +1,8 @@
 <template>
     <div>
-        <div class="jumbotron">
-            <h3>Edit Personal Information</h3>
-        </div>
         <div class="row">
             <!-- left column -->
             <div class="card">
-                
-
                     <form class="form-horizontal" role="form">
                         <div class="form-group">
                             <label class="col-lg-6 control-label">First name:</label>

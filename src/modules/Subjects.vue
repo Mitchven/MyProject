@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div class="jumbotron">
-      <h1>Subjects</h1>
-    </div>
     <center>
       <b-card text-align id="card" img-top tag="article" style="max-width: 30rem;" class="mb-2">
         <b-form-group label-size="lg" label-for="input-lg">
@@ -21,7 +18,7 @@
           <br>
           <b-button variant="primary" @click="addItem"
            >Add Subject</b-button>
-        </b-form-group>
+           </b-form-group>
       </b-card>
       <b-card text-align id="card1" img-top tag="article" style="max-width: 40rem;" class="mb-2">
         <table class="table">
@@ -32,6 +29,8 @@
               <th scope="col">TIME</th>
               <th scope="col">DAY</th>
               <th scope="col">ROOM</th>
+              <th scope="col">ACTION</th>
+              
             </tr>
           </thead>
          <tbody v-for="(item, index) in this.rows" :key="index">
@@ -42,6 +41,8 @@
               <td>{{ item.day }}</td>
               <td>{{ item.room }}</td>
 
+           <td><b-button variant="info" @click="removeItem(item.subject)">Remove Subject</b-button></td>
+        
             </tr>
           </tbody>
         </table>
@@ -92,7 +93,15 @@ export default {
       this.infos.time = ""
       this.infos.day= ""
       this.infos.room = ""
+    },
+    removeItem(sub) {
+      this.rows.splice(0,1);
+      // eslint-disable-next-line to ignore the next line.
+      /* eslint-disable */
+      console.log(sub)
+
     }
+    
   }
 };
 </script>

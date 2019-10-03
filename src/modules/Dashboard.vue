@@ -1,8 +1,7 @@
 <template>
   <div>
-    <div class="jumbotron">
-      <h1>Dashboard</h1>
-    </div>
+    <b-col></b-col>
+    <b-col>
     <div id="card">
       <b-card no-body class="overflow-hidden" style="max-width: 540px;">
         <center>
@@ -16,22 +15,19 @@
         </center>
       </b-card>
     </div>
+    </b-col>
+    <b-col></b-col>
   </div>
 </template>
 
 <style scoped>
 #card {
-  margin-top: 30px;
-  margin-left: 400px;
-}
-.jumbotron{
-    padding:20px;
-    text-align: center;
-    background-color:skyblue;
+  margin-top: 30px
+
 }
 #image {
-  width: 250px;
-  height: 220px;
+  width: 10%;
+  height: 90%;
 }
 h2 {
   font:bold 50px Times New Roman;

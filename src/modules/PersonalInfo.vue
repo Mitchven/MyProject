@@ -1,13 +1,10 @@
 <template>
   <div id="container">
-    <div class="jumbotron">
-      <h1>Personal Information</h1>
-    </div>
     <div id="card">
       <b-card no-body class="overflow-hidden" style="max-width: 540px;">
         <b-row no-gutters>
           <b-col md="6">
-            <b-card-img src="require('assets/user.png')" class="rounded-0"></b-card-img>
+            <b-card-img id="image" :src="require('assets/user.png')" class="rounded-0"></b-card-img>
           </b-col>
           <b-col md="6">
             <b-card-body title="Personal Info">
@@ -32,14 +29,9 @@
 </template>
 
 <style>
-.jumbotron{
-    padding: 20px;
-    text-align: center;
-    background-color:skyblue;
-}
 #card {
-  margin-top: 50px;
-  margin-left: 380px;
+  margin-top: 10%;
+  margin-left: 30%;
 }
 </style>
 <script>

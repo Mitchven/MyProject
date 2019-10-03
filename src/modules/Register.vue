@@ -114,8 +114,14 @@ export default {
         sessionStorage.setItem("Lastname", this.content.lastname),
         sessionStorage.setItem("Email", this.content.email),
         sessionStorage.setItem("Username", this.content.username),
-        sessionStorage.setItem("Password", this.content.password),
-        AUTH.register(this.content.email, this.content.password);
+        sessionStorage.setItem("Password", this.content.password)
+
+        if (this.content.lastname == "" || this.content.email == "" || this.content.username == "" || this.content.password == ""){
+          alert("You need to fill in the filled!")
+        }else{
+          alert("Registered Successfully!")
+        }
+        AUTH.register(this.content.email,this.content.password);
     }
   }
 };

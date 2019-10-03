@@ -1,6 +1,10 @@
 <template>
-  <sidebar-menu :menu="menu" />
+  <sidebar-menu :menu="menu" style = "margin-top: 56px;height:93%"/>
 </template>
+
+<style scoped>
+ 
+</style>
  
 <script>
 export default {
