@@ -10,34 +10,17 @@
       </div>
     </div>
     <div>
-  <b-dropdown id="dropdown" text="Passenger" class="m-md-2">
-    <b-dropdown-item>Adult</b-dropdown-item>
-    <b-dropdown-item>Senior Citizen</b-dropdown-item>
-    <b-dropdown-item>Student</b-dropdown-item>
-  </b-dropdown>
-</div>
+      <b-dropdown id="dropdown" text="Passenger" class="m-md-2">
+        <b-dropdown-item>Adult</b-dropdown-item>
+        <b-dropdown-item>Senior Citizen</b-dropdown-item>
+        <b-dropdown-item>Student</b-dropdown-item>
+      </b-dropdown>
+    </div>
   </div>
 </template>
 
 <style scoped>
-#card {
-  margin-top: 30px;
-}
-#image {
-  width: 10%;
-  height: 90%;
-}
-h2 {
-  font: bold 50px Times New Roman;
-  color: magenta;
-}
-h3 {
-  font: italic bold 40px Georgia, serif;
-  color: yellowgreen;
-}
-#input {
-  margin-left: 30%;
-}
+
 </style>
 
 <script>
