@@ -8,18 +8,18 @@ export default {
     getUser(user) {
         this.user = user
     },
-    register(username, password) {
+    register(email, password) {
         this.registeredUser.push({
-        username : username,
+        email : email,
         password : password
         })
         ROUTER.push("/Login");
     },
-    login(username, password) {
+    login(email, password) {
         for (let i = 0; i < this.registeredUser.length; i++) {
-            if (this.registeredUser[i].username === username && this.registeredUser[i].password === password) {
+            if (this.registeredUser[i].email === email && this.registeredUser[i].password === password) {
                 ROUTER.push('/Dashboard')
-                this.setUser(username)
+                this.setUser(email)
                 return this.registeredUser[i]
 
             }

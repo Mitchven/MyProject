@@ -1,142 +1,89 @@
 <template>
-  <div class="row registerPage">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-        <div class="container">
-          <div class="card">
-            <div class="card-header">REGISTER</div>
-            <div class="card-body">
-                <div class="form-group">
-                <label for="fname" class="bmd-label-floating">Firstname</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="fname"
-                  v-model = "content.firstname"
-                  placeholder="Enter your firstname"
-                />
-              </div>
-              <div class="form-group">
-                <label for="lname" class="bmd-label-floating">Lastname</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="lname"
-                  v-model = "content.lastname"
-                  placeholder="Enter your lastname"
-                />
-              </div>
-              <div class="form-group">
-                <label for="email" class="bmd-label-floating">Email Address</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  v-model= "content.email"
-                  placeholder="Enter your email"
-                />
-              </div>
-              <div class="form-group">
-                <label for="email" class="bmd-label-floating">Username</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="username"
-                  v-model= "content.username"
-                  placeholder="Enter your username"
-                />
-              </div>
-              <div class="form-group">
-                <label for="pass" class="bmd-label-floating">Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="pass"
-                  v-model = "content.password"
-                  placeholder="Enter your password"
-                />
-              </div>
-                            <div class="form-group">
-                <label for="cpass" class="bmd-label-floating">Confirm Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="cpass"
-                  v-model = "content.cpassword"
-                  placeholder="Confirm you password"
-                />
-              </div>
-              <center>
-                <button type="button" class="btn btn-outline-success register-btn" id="btnRegister" @click = "submit">Register</button>
-
-                <br>
-                <p>Already have an account?</p>
-                <router-link to="/Login">Login</router-link>
-              </center>
-            </div>
-          </div>
+  <div class="card">
+    <!-- <div class="summary text-danger" id = "errors" v-if="$v.form.$error">Form has errors</div> -->
+    <form @submit.prevent="submit">
+      <div class="flex justify-center my-6">
+        <div class="px-4" :class="{ 'hasError': $v.form.name.$error }">
+          <label class="mr-2 font-bold text-grey">Fullname</label>
+          <input type="text" class="input" v-model="form.name" />
+        </div>
+        <div class="px-4" :class="{ 'hasError': $v.form.name.$error }">
+          <label class="mr-2 font-bold text-grey">Username</label>
+          <input type="text" class="input" v-model="form.uname" />
+        </div>
+        <div class="px-4" :class="{ 'hasError': $v.form.email.$error }">
+          <label class="mr-2 font-bold text-grey">Email</label>
+          <input type="email" class="input" v-model="form.email" />
+        </div>
+        <div class="px-4" :class="{ 'hasError': $v.form.email.$error }">
+          <label class="mr-2 font-bold text-grey">Password</label>
+          <input type="password" class="input" v-model="form.password" />
         </div>
       </div>
-    </div>
 
-
+      <div class="text-center">
+        <button type="submit" class="button" id = "btnRegister">Submit</button>
+      </div>
+    </form>
+  </div>
 </template>
-<style scoped lang="scss">
-// @import"assets/colors.scss";
 
-// #username{
-//   color: $primary !important;
-// }
-// #pass{
-//   color: $primary !important;
-</style>
 <script>
-// import ROUTER from "router";
 import AUTH from "services/auth";
+import { required, email, minLength } from "vuelidate/lib/validators";
+
 export default {
+  name: "Register",
+
   data() {
     return {
-      auth: AUTH,
-      content: {
-        firstname: "",
-        lastname: "",
+      form: {
+        name: "",
+        uname: "",
         email: "",
-        username: "",
-        password: "",
-        cpassword: ""
+        password: ""
       }
     };
   },
-  methods: {
-    submit: function(e) {
-      e.preventDefault();
-      sessionStorage.setItem("Firstname", this.content.firstname),
-        sessionStorage.setItem("Lastname", this.content.lastname),
-        sessionStorage.setItem("Email", this.content.email),
-        sessionStorage.setItem("Username", this.content.username),
-        sessionStorage.setItem("Password", this.content.password)
+  validations: {
+    form: {
+      name: { required, min: minLength(10) },
+      email: { required, email },
+      password: { required, min: minLength(8)}
+    }
+  },
 
-        if (this.content.lastname == "" || this.content.email == "" || this.content.username == "" || this.content.password == ""){
-          alert("You need to fill in the filled!")
-        }else{
-          alert("Registered Successfully!")
-        }
-        AUTH.register(this.content.email,this.content.password);
+  methods: {
+    submit() {
+      sessionStorage.setItem("Fullname", this.form.name),
+        sessionStorage.setItem("Email", this.form.email),
+        sessionStorage.setItem("Username", this.form.uname),
+        sessionStorage.setItem("Password", this.form.password);
+
+      this.$v.form.$touch();
+      alert("You need to fill in the field!")
+      
+      if (this.$v.form.$error) return;
+      // to form submit after this
+      alert("Form submitted");
+      AUTH.register(this.form.email,this.form.password);
     }
   }
+ 
 };
 </script>
 
 <style>
-  .card {
+.card {
   background-color: gray;
-  margin-top: 30px;
+  margin-top: 2%;
+  margin-right: 30%;
+  margin-left: 30%;
   padding: 0px;
-  border-radius: 50px;
+  border-radius: 20px;
 }
-  
 
-.h3 {
+/* .h3 {
   margin-left: 500px;
   margin-top: 300px;
   font-size: 40px;
@@ -148,16 +95,15 @@ export default {
 
 .card-header {
   text-align: center;
-  font-weight:bold;
+  font-weight: bold;
   font-size: 30px;
   letter-spacing: 5px;
   border-radius: 50px;
-  color:white;
-  
-}
+  color: white;
+} */
 
 label {
-  font-weight:bold;
+  font-weight: bold;
 }
 
 input {
@@ -171,4 +117,3 @@ input {
   padding: 12px 30px;
 }
 </style>
-
