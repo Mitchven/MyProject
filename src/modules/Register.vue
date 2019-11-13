@@ -61,9 +61,9 @@ export default {
         sessionStorage.setItem("Password", this.form.password);
 
       this.$v.form.$touch();
-      alert("You need to fill in the field!")
       
-      if (this.$v.form.$error) return;
+      
+      if (this.$v.form.$error) return alert("You need to fill in the field!");
       // to form submit after this
       alert("Form submitted");
       AUTH.register(this.form.email,this.form.password);

@@ -1,5 +1,13 @@
 export default {
     routes: [{
+        path: '/LandingPage',
+        name: 'home',
+        component: resolve => require(['modules/LandingPage.vue'], resolve),
+        meta: {
+            tokenRequired: false
+        }
+    },
+        {
         path: '/Login',
         name: 'login',
         component: resolve => require(['modules/Login.vue'], resolve),
